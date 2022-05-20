@@ -13,6 +13,21 @@
   </p>
 </div>
 
+<p align="center">
+  <img src = "frontpage.png" width=700>
+</p>
+
+## Techniques Learned
+- Smooth scroll
+- Page Navigation
+- Tabbed component
+- Menu fade animation
+- Sticky navigation
+- Lazy loading images
+- Slider component
+- Reveal sections
+
+
 ## Features
 - ✔️ Login, Logout
 - ✔️ Transfer Money
