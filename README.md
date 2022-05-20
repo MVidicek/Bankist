@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-<h1 align="center">🏦 Bnkist</h1>
+<h1 align="center">🏦 Bankist</h1>
 
   <p align="center">
     Minimalistic Banking Web Application (JS | HTML | CSS) <br/>
