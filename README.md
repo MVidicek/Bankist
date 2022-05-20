@@ -14,7 +14,7 @@
 </div>
 
 <p align="center">
-  <img src = "frontpage.png" width=700>
+  <img src = "frontpage.PNG" width=700>
 </p>
 
 ## Techniques Learned
