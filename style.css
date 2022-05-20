@@ -371,6 +371,10 @@ img {
   transition: all 0.3s;
 }
 
+.btn--log-out {
+  width: fit-content;
+}
+
 .nav__link--btn:link,
 .nav__link--btn:visited {
   padding: 0.8rem 2.5rem;

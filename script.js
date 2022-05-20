@@ -289,6 +289,7 @@ const account2 = {
   locale: 'en-US',
 };
 
+let currentAccount, timer;
 const accounts = [account1, account2];
 
 // Elements
@@ -308,6 +309,7 @@ const btnTransfer = document.querySelector('.form__btn--transfer');
 const btnLoan = document.querySelector('.form__btn--loan');
 const btnClose = document.querySelector('.form__btn--close');
 const btnSort = document.querySelector('.btn--sort');
+const btnLogout = document.querySelector('.btn--log-out');
 
 const inputLoginUsername = document.querySelector('.login__input--user');
 const inputLoginPin = document.querySelector('.login__input--pin');
@@ -409,8 +411,6 @@ const calcDisplaySummary = function (acc) {
 
 /////////////////////LOGIN/////////////////////
 
-let currentAccount, timer;
-
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
   e.preventDefault();
@@ -418,6 +418,7 @@ btnLogin.addEventListener('click', function (e) {
   currentAccount = accounts.find(
     (acc) => acc.username === inputLoginUsername.value
   );
+  console.log(currentAccount);
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     // Display UI and message
     containerApp.style.display = 'Grid';
@@ -446,6 +447,17 @@ btnLogin.addEventListener('click', function (e) {
     timer = startLogOutTimer();
     updateUI(currentAccount);
   }
+});
+
+/////////////////////LOG OUT/////////////////////
+
+btnLogout.addEventListener('click', function (e) {
+  e.preventDefault();
+  containerApp.style.display = 'None';
+  containerLanding.style.display = 'Grid';
+  headerTitle.style.display = 'Grid';
+  nav.style.display = 'Flex';
+  currentAccount = '';
 });
 
 /////////////////////TRANSFER/////////////////////
@@ -493,7 +505,10 @@ btnClose.addEventListener('click', function (e) {
     accounts.splice(index, 1);
 
     // Hide UI
-    containerApp.style.opacity = 0;
+    containerApp.style.display = 'None';
+    containerLanding.style.display = 'Grid';
+    headerTitle.style.display = 'Grid';
+    nav.style.display = 'Flex';
   }
   inputCloseUsername.value = inputClosePin.value = '';
 });
@@ -526,7 +541,7 @@ let sorted = false;
 
 btnSort.addEventListener('click', function (e) {
   e.preventDefault();
-  displayMovements(currentAccount.movements, !sorted);
+  displayMovements(currentAccount, !sorted);
   sorted = !sorted;
 });
 
@@ -565,7 +580,7 @@ const startLogOutTimer = function () {
     if (time === 0) {
       clearInterval(timer);
       containerApp.style.display = 'None';
-      ContainerLanding.style.display = 'Grid';
+      containerLanding.style.display = 'Grid';
       headerTitle.style.display = 'Grid';
       nav.style.display = 'Flex';
     }
